@@ -1,5 +1,7 @@
 import Login from "@/components/Login";
-import { useSession, signIn, signOut } from "next-auth/react";
+import Logout from "@/components/Logout";
+import Nav from "@/components/Nav";
+import { useSession} from "next-auth/react";
 export default function Home() {
   const { data: session } = useSession();
   if (!session) {
@@ -10,9 +12,10 @@ export default function Home() {
     );
   }
   return (
-    <>
-      Signed in as {session.user.email} <br />
-      <button onClick={() => signOut()}>Sign out</button>
-    </>
+    <div className="bg-blue-900 min-h-screen">
+      <Nav />
+      <Logout />
+      Signed in as {session.user.email}
+    </div>
   );
 }
