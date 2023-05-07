@@ -1,11 +1,34 @@
+import Link from "next/link";
 import React from "react";
-import { FaStore } from "react-icons/fa";
+import { FaStore,FaHome,FaCog,FaClipboardList,FaBoxOpen } from "react-icons/fa";
 const Nav = () => {
   return (
-    <aside>
-      <div>
+    <aside className="text-white p-4">
+      <Link href={"/"} className="flex">
         <FaStore />
-      </div>
+        <span>
+          E commerce Admin
+        </span>
+      </Link>
+      <nav>
+        <Link href={"/"} className="flex">
+          <FaHome/>
+        Dashboard
+        </Link>
+        <Link href={"/orders"} className="flex">
+          <FaClipboardList/>
+        Orders
+        </Link>
+        <Link href={"/products"} className="flex">
+          <FaBoxOpen/>
+        Products
+        </Link>
+        <Link href={"/settings"} className="flex">
+          <FaCog/>
+        Settings
+        </Link>
+      </nav>
+
     </aside>
   );
 };
