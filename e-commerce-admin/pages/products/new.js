@@ -1,10 +1,11 @@
 import React,{useState} from "react";
 import Layout from "@/components/Layout";
+import axios from "axios";
 const newProduct = () => {
     const [formData, setFormData] = useState({
         name: "",
         description: "",
-        price: 100,
+        price: 0,
       });
     
       const handleChange = (e) => {
@@ -17,7 +18,7 @@ const newProduct = () => {
       };
       const createProduct = async (e) => {
         e.preventDefault();
-
+        await axios.post('/api/products',formData)
       };
   return (
     <Layout>
