@@ -5,7 +5,7 @@ const newProduct = () => {
     <Layout>
       <div className="flex flex-col">
         <input type="text" placeholder="product name" />
-        <textarea />
+        <textarea  type="text" placeholder="description"/>
       </div>
     </Layout>
   );
