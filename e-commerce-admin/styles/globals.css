@@ -2,11 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-input,textarea {
-  @apply border-4 border-gray-400 rounded-md p-2 ;
-  @apply mb-2
+input,
+textarea {
+  @apply border-4 border-gray-400 rounded-md p-2;
+  @apply mb-2;
 }
 
-input:focus,textarea:focus {
+input:focus,
+textarea:focus {
   @apply border-blue-900;
+}
+
+h1 {
+  @apply text-blue-900 mb-3 text-xl;
+}
+label {
+  @apply text-blue-900;
+}
+
+.btn-primary {
+  @apply bg-blue-900 rounded-md text-white p-2;
 }
