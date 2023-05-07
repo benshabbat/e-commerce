@@ -15,14 +15,14 @@ const newProduct = () => {
   
         }));
       };
-      const onSubmit = async (e) => {
+      const createProduct = async (e) => {
         e.preventDefault();
 
       };
   return (
     <Layout>
       <h1>New Product</h1>
-      <form className="flex flex-col" onSubmit={}>
+      <form className="flex flex-col" onSubmit={createProduct}>
         <label>Product Name</label>
         <input type="text" name="name" placeholder="product name" onChange={handleChange} />
         <label>Description</label>
