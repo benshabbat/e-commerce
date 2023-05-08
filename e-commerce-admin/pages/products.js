@@ -21,7 +21,7 @@ const products = () => {
         <thead>
           <tr>
             <th>Product Name</th>
-            <th>Product Name</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -29,8 +29,11 @@ const products = () => {
             return (
               <tr key={product?._id}>
                 <td>{product?.name}</td>
-                <td>buttons</td>
-               
+                <td>
+                  <Link href={"/products/"+product?._id}>
+                    Edit
+                  </Link>
+                </td>
               </tr>
             );
           })}
