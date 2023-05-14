@@ -31,7 +31,7 @@ const products = () => {
               <tr key={product?._id}>
                 <td>{product?.name}</td>
                 <td>
-                  <Link href={"/products/"+product?._id}>
+                  <Link href={"/products/edit/"+product?._id}>
                     <BsPencilSquare className="w-6 h-6"/>
                     Edit
                   </Link>

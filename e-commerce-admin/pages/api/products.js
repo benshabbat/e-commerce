@@ -6,6 +6,9 @@ export default async function handle(req, res) {
   await mongooseConnect();
 
   if (method === "GET") {
+    if(req.query?.id){
+      res.json(await Product.findById(req.query?.id)); 
+    }
     res.json(await Product.find());
   }
 
@@ -16,4 +19,11 @@ export default async function handle(req, res) {
 
     res.status(200).json(newProduct);
   }
+
+  if(method === "PUT"){
+
+  }    if(req.query?.id){
+    const updateProduct = await Product.updateOne()
+      res.json(await Product.findById(req.query?.id)); 
+    }
 }
