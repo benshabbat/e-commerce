@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import axios from "axios";
 import { useRouter } from "next/router";
 const EditProduct = () => {
+  const [formData, setFormData] = useState();
   const router = useRouter();
   const { idProduct } = router.query;
   console.log(idProduct);
@@ -14,7 +15,6 @@ const EditProduct = () => {
     fetchData();
   }, [idProduct]);
 
-  const [formData, setFormData] = useState();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
