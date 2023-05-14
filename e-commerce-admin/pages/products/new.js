@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Layout from "@/components/Layout";
 import axios from "axios";
 import { useRouter } from "next/router";
+import ProductForm from "@/components/ProductForm";
 const newProduct = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,32 +25,12 @@ const newProduct = () => {
   return (
     <Layout>
       <h1>New Product</h1>
-      <form className="flex flex-col" onSubmit={createProduct}>
-        <label>Product Name</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="product name"
-          onChange={handleChange}
+      <ProductForm
+          handleChange={handleChange}
+          formData={formData}
+          nameMethod="Save"
+          onSubmit={createProduct}
         />
-        <label>Description</label>
-        <textarea
-          type="text"
-          name="description"
-          placeholder="description"
-          onChange={handleChange}
-        />
-        <label>Price</label>
-        <input
-          type="number"
-          name="price"
-          placeholder="price"
-          onChange={handleChange}
-        />
-        <button className="btn-primary" type="submit">
-          Save
-        </button>
-      </form>
     </Layout>
   );
 };
