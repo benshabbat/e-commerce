@@ -16,13 +16,7 @@ const EditProduct = () => {
     fetchData();
   }, [idProduct]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+
   const updateProduct = async (e) => {
     e.preventDefault();
     await axios.put("/api/products?id=" + idProduct, formData);
@@ -33,7 +27,7 @@ const EditProduct = () => {
       <h1>Update Product</h1>
       {formData && (
         <ProductForm
-          handleChange={handleChange}
+        setFormData={setFormData}
           formData={formData}
           nameMethod="Edit"
           onSubmit={updateProduct}

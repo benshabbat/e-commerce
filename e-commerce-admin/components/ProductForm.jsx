@@ -1,6 +1,13 @@
 import React from 'react'
 
-const ProductForm = ({handleChange,formData,nameMethod,onSubmit}) => {
+const ProductForm = ({setFormData,formData,nameMethod,onSubmit}) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   return (
     <form className="flex flex-col" onSubmit={onSubmit}>
     <label>Product Name</label>
