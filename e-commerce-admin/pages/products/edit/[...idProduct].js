@@ -6,15 +6,16 @@ import { useRouter } from "next/router";
 const EditProduct = () => {
   const [formData, setFormData] = useState()
   const router = useRouter();
-  const { idProduct } = router.query;
+  const { idProduct } = router?.query;
   console.log(idProduct);
 
   useEffect(() => {
+    if(idProduct){
     const fetchData = async () => {
       const { data } = await axios.get("/api/products?id=" + idProduct);
       setFormData(data);
     };
-    fetchData();
+    fetchData();}
   }, [idProduct]);
   return (
     <Layout>

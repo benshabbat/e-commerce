@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 const ProductForm = ({ nameMethod,data=null }) => {
   const [formData, setFormData] = useState(data);
   const router = useRouter();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -18,12 +19,12 @@ const ProductForm = ({ nameMethod,data=null }) => {
   };
   const updateProduct = async (e) => {
     e.preventDefault();
-    await axios.put("/api/products?id=" + idProduct, formData);
+    await axios.put("/api/products", formData);
     router.push("/products");
   };
   const onSubmit = async (e) => {
-    if (nameMethod === "Edit") updateProduct();
-    if (nameMethod === "Save") createProduct();
+    if (nameMethod === "Edit") updateProduct(e);
+    if (nameMethod === "Save") createProduct(e);
   };
 
   return (

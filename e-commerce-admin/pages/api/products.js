@@ -22,9 +22,9 @@ export default async function handle(req, res) {
   }
 
   if (method === "PUT") {
-  }
-  if (req.query?.id) {
-    const updateProduct = await Product.updateOne();
-    res.json(await Product.findById(req.query?.id));
+    const { _id } = req.body;
+
+    const updateProduct = await Product.updateOne({ _id }, req.body);
+    res.json(updateProduct);
   }
 }
