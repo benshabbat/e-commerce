@@ -36,7 +36,7 @@ const products = () => {
                     <BsPencilSquare className="w-6 h-6"/>
                     Edit
                   </Link>
-                  <Link href={"/products/delete/"+product?._id} className="bg-red-300">
+                  <Link href={"/products/delete/"+product?._id} className="btn-red">
                     <MdOutlineDeleteForever className="w-6 h-6"/>
                     Delete
                   </Link>
