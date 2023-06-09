@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import axios from "axios";
 import {BsPencilSquare} from "react-icons/bs"
+import {MdOutlineDeleteForever} from "react-icons/md"
 const products = () => {
   const [products, setProducts] = useState();
   useEffect(() => {
@@ -34,6 +35,10 @@ const products = () => {
                   <Link href={"/products/edit/"+product?._id}>
                     <BsPencilSquare className="w-6 h-6"/>
                     Edit
+                  </Link>
+                  <Link href={"/products/delete/"+product?._id} className="bg-red-300">
+                    <MdOutlineDeleteForever className="w-6 h-6"/>
+                    Delete
                   </Link>
                 </td>
               </tr>
