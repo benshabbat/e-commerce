@@ -22,8 +22,10 @@ const DeleteProduct = () => {
   }, [idProduct]);
   return (
     <Layout>
-      <h1>Do you really want to delete "{formData?.name}"?</h1>
-      <div className="flex gap-2">
+      <h1 className="text-center">
+        Do you really want to delete "{formData?.name}"?
+      </h1>
+      <div className="flex gap-2 justify-center">
         <button className="btn-red">Yes</button>
         <button onClick={goBack} className="btn-default">
           No
