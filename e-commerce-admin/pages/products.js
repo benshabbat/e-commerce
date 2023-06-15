@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "@/components/Layout";
 import Link from "next/link";
 import axios from "axios";
-import {BsPencilSquare} from "react-icons/bs"
-import {MdOutlineDeleteForever} from "react-icons/md"
+import { BsPencilSquare } from "react-icons/bs";
+import { MdOutlineDeleteForever } from "react-icons/md";
 const products = () => {
   const [products, setProducts] = useState();
   useEffect(() => {
@@ -32,12 +32,15 @@ const products = () => {
               <tr key={product?._id}>
                 <td>{product?.name}</td>
                 <td>
-                  <Link href={"/products/edit/"+product?._id}>
-                    <BsPencilSquare className="w-6 h-6"/>
+                  <Link href={"/products/edit/" + product?._id}>
+                    <BsPencilSquare className="w-6 h-6" />
                     Edit
                   </Link>
-                  <Link href={"/products/delete/"+product?._id} className="btn-red">
-                    <MdOutlineDeleteForever className="w-6 h-6"/>
+                  <Link
+                    href={"/products/delete/" + product?._id}
+                    className="btn-red"
+                  >
+                    <MdOutlineDeleteForever className="w-6 h-6" />
                     Delete
                   </Link>
                 </td>
@@ -47,7 +50,7 @@ const products = () => {
         </tbody>
       </table>
     </Layout>
-  );
+  )
 };
 
 export default products;
