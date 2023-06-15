@@ -11,6 +11,11 @@ const DeleteProduct = () => {
     router.push("/products");
   };
 
+  const deleteProduct = async () => {
+    await axios.delete("/api/products?id=" + idProduct);
+    goBack();
+  };
+
   useEffect(() => {
     if (idProduct) {
       const fetchData = async () => {
@@ -26,7 +31,7 @@ const DeleteProduct = () => {
         Do you really want to delete "{formData?.name}"?
       </h1>
       <div className="flex gap-2 justify-center">
-        <button className="btn-red">Yes</button>
+        <button onClick={deleteProduct} className="btn-red">Yes</button>
         <button onClick={goBack} className="btn-default">
           No
         </button>
