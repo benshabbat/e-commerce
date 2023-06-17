@@ -27,7 +27,17 @@ const ProductForm = ({ nameMethod, data = null }) => {
     if (nameMethod === "Edit") updateProduct(e);
     if (nameMethod === "Save") createProduct(e);
   };
-
+  const uploadPhotos = async (e) => {
+    const { files } = e.target;
+    if (files?.length > 0) {
+      const data = new FormData();
+      files.forEach((file) => {
+        data.append("file", file);
+      });
+      const res = await axios.post("/api/upload", data);
+      console.log(res.data);
+    }
+  };
   return (
     <form className="flex flex-col" onSubmit={onSubmit}>
       <label>Product Name</label>
@@ -40,11 +50,13 @@ const ProductForm = ({ nameMethod, data = null }) => {
       />
       <label>Photos</label>
       <div className="mb-2">
-        <label className="h-24 w-24 border-4 border-gray-400
-         flex text-ceter items-center justify-center gap-1 text-sm text-gray-500 rounded-md cursor-pointer">
+        <label
+          className="h-24 w-24 border-4 border-gray-400
+         flex text-ceter items-center justify-center gap-1 text-sm text-gray-500 rounded-md cursor-pointer"
+        >
           <FiUpload />
           Upload
-          <input type="file" className="hidden" />
+          <input type="file" className="hidden" onChange={uploadPhotos} />
         </label>
         {!formData?.photos?.length ? (
           <div>dont have any photos for this product </div>
