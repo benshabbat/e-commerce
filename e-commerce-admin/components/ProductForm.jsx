@@ -1,7 +1,8 @@
-import { useState} from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-const ProductForm = ({ nameMethod,data=null }) => {
+import { FiUpload } from "react-icons/fi";
+const ProductForm = ({ nameMethod, data = null }) => {
   const [formData, setFormData] = useState(data);
   const router = useRouter();
 
@@ -37,6 +38,22 @@ const ProductForm = ({ nameMethod,data=null }) => {
         onChange={handleChange}
         value={formData?.name}
       />
+      <label>Photos</label>
+      <div className="mb-2">
+        <label className="h-24 w-24 border-4 border-gray-400
+         flex text-ceter items-center justify-center gap-1 text-sm text-gray-500 rounded-md cursor-pointer">
+          <FiUpload />
+          Upload
+          <input type="file" className="hidden" />
+        </label>
+        {!formData?.photos?.length ? (
+          <div>dont have any photos for this product </div>
+        ) : (
+          formData?.photos?.map((photo) => (
+            <img key={photo.id} src={photo.url} alt={photo.description} />
+          ))
+        )}
+      </div>
       <label>Description</label>
       <textarea
         type="text"
