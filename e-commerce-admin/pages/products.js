@@ -19,7 +19,7 @@ const products = () => {
         Add a new Product
       </Link>
 
-      <table className="basic mt-5">
+      <table className="basic mt-4">
         <thead>
           <tr>
             <th>Product Name</th>
