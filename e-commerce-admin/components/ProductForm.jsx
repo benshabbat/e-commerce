@@ -31,9 +31,9 @@ const ProductForm = ({ nameMethod, data = null }) => {
     const { files } = e.target;
     if (files?.length > 0) {
       const data = new FormData();
-      files.forEach((file) => {
+      for (const file of files) {
         data.append("file", file);
-      });
+      }
       const res = await axios.post("/api/upload", data);
       console.log(res.data);
     }
