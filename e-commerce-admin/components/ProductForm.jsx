@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { FiUpload } from "react-icons/fi";
-const ProductForm = ({ nameMethod, data = null }) => {
+const ProductForm = ({ nameMethod, data = null,images=[] }) => {
   const [formData, setFormData] = useState(data);
+  const [images, setImages] = useState(images);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -35,6 +36,7 @@ const ProductForm = ({ nameMethod, data = null }) => {
         data.append("file", file);
       }
       const res = await axios.post("/api/upload", data);
+      setImages((oldImages) => [...oldImages, ...res.data.links]);
       console.log(res.data);
     }
   };
